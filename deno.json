@@ -1,0 +1,19 @@
+{
+  "tasks": {
+    "dev": "deno run -A --watch-hmr flint.ts --port=4000",
+    "build": "deno run -A flint.ts --build",
+    "stage": {
+      "command": "deno serve -A --port=4000 --parallel dist/serve.ts",
+      "dependencies": ["build"]
+    }
+  },
+  "imports": {
+    "@flint/framework": "jsr:@flint/framework@^0.42.1",
+    "@handcraft/lib": "jsr:@handcraft/lib@^4.7.1"
+  },
+  "unstable": ["bundle"],
+  "compilerOptions": {
+    "lib": ["deno.ns", "deno.unstable", "dom", "dom.iterable", "es2025"]
+  },
+  "links": ["../handcraft/", "../flint/"]
+}
