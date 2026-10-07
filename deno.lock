@@ -16,7 +16,8 @@
     "jsr:@std/path@^1.1.6": "1.1.6",
     "npm:@remix-run/mime@1": "1.0.0",
     "npm:html-rewriter-wasm@~0.4.1": "0.4.1",
-    "npm:lightningcss@^1.33.0": "1.33.0"
+    "npm:lightningcss@^1.33.0": "1.33.0",
+    "npm:parse5@^8.0.1": "8.0.1"
   },
   "jsr": {
     "@cfa/gitignore-parser@0.1.4": {
@@ -88,6 +89,9 @@
     },
     "detect-libc@2.1.2": {
       "integrity": "sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ=="
+    },
+    "entities@8.1.0": {
+      "integrity": "sha512-kxL7msIffSuh9aaFAMD7rxAIuTRMAHMeBtgHW2yUdWw732ZNh4MehkF2gdjvtdmikkaIP9bFDDJOPlsvm7avrA=="
     },
     "html-rewriter-wasm@0.4.1": {
       "integrity": "sha512-lNovG8CMCCmcVB1Q7xggMSf7tqPCijZXaH4gL6iE8BFghdQCbaY5Met9i1x2Ex8m/cZHDUtXK9H6/znKamRP8Q=="
@@ -165,34 +169,20 @@
         "lightningcss-win32-arm64-msvc",
         "lightningcss-win32-x64-msvc"
       ]
+    },
+    "parse5@8.0.1": {
+      "integrity": "sha512-z1e/HMG90obSGeidlli3hj7cbocou0/wa5HacvI3ASx34PecNjNQeaHNo5WIZpWofN9kgkqV1q5YvXe3F0FoPw==",
+      "dependencies": [
+        "entities"
+      ]
     }
   },
   "workspace": {
     "dependencies": [
       "jsr:@flint/framework@~0.42.1",
-      "jsr:@handcraft/lib@^4.7.1"
-    ],
-    "links": {
-      "jsr:@flint/framework@0.42.1": {
-        "dependencies": [
-          "jsr:@cfa/gitignore-parser@~0.1.4",
-          "jsr:@std/async@^1.5.1",
-          "jsr:@std/cli@^1.0.32",
-          "jsr:@std/crypto@^1.1.0",
-          "jsr:@std/encoding@^1.0.11",
-          "jsr:@std/fs@^1.0.24",
-          "jsr:@std/http@^1.1.4",
-          "jsr:@std/path@^1.1.6",
-          "npm:@remix-run/mime@1",
-          "npm:html-rewriter-wasm@~0.4.1",
-          "npm:lightningcss@^1.33.0"
-        ]
-      },
-      "jsr:@handcraft/lib@4.7.1": {
-        "dependencies": [
-          "jsr:@std/html@^1.0.7"
-        ]
-      }
-    }
+      "jsr:@handcraft/lib@^4.7.1",
+      "jsr:@std/html@^1.0.7",
+      "npm:parse5@^8.0.1"
+    ]
   }
 }

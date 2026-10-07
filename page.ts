@@ -35,16 +35,12 @@ export default function () {
         h1("html to handcraft conversion tool"),
         div(
           label.for("html")("html"),
-          textarea.id("html")(`<div class="test">Test 1 2 3</div>`),
+          textarea.id("html"),
         ),
         div(
           label.for("output")("output"),
-          output
-            .id("output")
-            .for("html")(
-              `div.class("test")("Test 1 2 3")`,
-            ),
-          button("copy"),
+          output.id("output").for("html"),
+          button.id("copy")("copy"),
         ),
       ),
     ),
