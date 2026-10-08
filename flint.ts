@@ -8,7 +8,7 @@ import api from "./api.ts";
 
 const app = flint()
   .route("/", view(page))
-  .route("/api.json", json.post(api))
+  .route("/api.json", json.post(api), [])
   .file("/script.js", js)
   .file("/styles.css", css);
 
