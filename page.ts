@@ -1,46 +1,33 @@
-import { h } from "@handcraft/lib";
-
-const {
-  html,
-  head,
-  meta,
-  title,
-  body,
-  link,
-  script,
-  div,
-  label,
-  textarea,
-  output,
-  h1,
-  button,
-  main,
-} = h.html;
+import attr from "@handcraft/lib/attr";
+import text from "@handcraft/lib/text";
+import { html } from "@handcraft/lib/h";
 
 export default function () {
-  return html.lang("en-US")(
-    head(
-      meta.charset("utf-8"),
-      meta
-        .name("viewport")
-        .content(
+  return html.html(
+    attr.lang("en-US"),
+    html.head(
+      html.meta(attr.charset("utf-8")),
+      html.meta(
+        attr.name("viewport"),
+        attr.content(
           "width=device-width",
         ),
-      link.rel("stylesheet").href("/styles.css"),
-      script.type("module").src("/script.js"),
-      title("html to handcraft conversion tool"),
+      ),
+      html.link(attr.rel("stylesheet"), attr.href("/styles.css")),
+      html.script(attr.type("module"), attr.src("/script.js")),
+      html.title(text("html to handcraft conversion tool")),
     ),
-    body(
-      main(
-        h1("html to handcraft conversion tool"),
-        div(
-          label.for("html")("html"),
-          textarea.id("html"),
-        ),
-        div(
-          label.for("output")("output"),
-          output.id("output").for("html"),
-          button.id("copy")("copy"),
+    html.body(
+      html.main(
+        html.h1(text("html to handcraft conversion tool")),
+        html.div(
+          html.label(attr.for("input"), text("input")),
+          html.textarea(attr.id("input")),
+          html.div(
+            html.label(attr.for("output"), text("output")),
+            html.output(attr.id("output"), attr.for("input")),
+            html.button(attr.id("copy"), text("copy")),
+          ),
         ),
       ),
     ),
