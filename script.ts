@@ -2,7 +2,6 @@ import on from "@handcraft/lib/on";
 import text from "@handcraft/lib/text";
 import { watch } from "@handcraft/lib/reactivity";
 import { $ } from "@handcraft/lib/dollar";
-import { html } from "@handcraft/lib/h";
 
 const model = watch({ value: "" });
 
@@ -21,9 +20,7 @@ $("#input")(
   }),
 );
 
-$("#output")(
-  html.pre(text(() => model.value)),
-);
+$("#output")(text(() => model.value));
 
 $("#copy")(
   on.click(async () => {

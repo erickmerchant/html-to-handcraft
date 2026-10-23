@@ -69,6 +69,7 @@ textarea {
 
 output {
   min-block-size: 10lh;
+  white-space: pre;
 }
 
 button {
