@@ -1,6 +1,6 @@
 import attr from "@handcraft/lib/attr";
 import text from "@handcraft/lib/text";
-import { html } from "@handcraft/lib/h";
+import html from "@handcraft/lib/html";
 
 export default function () {
   return html.html(

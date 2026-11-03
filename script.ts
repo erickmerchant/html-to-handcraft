@@ -1,7 +1,7 @@
 import on from "@handcraft/lib/on";
 import text from "@handcraft/lib/text";
 import { watch } from "@handcraft/lib/reactivity";
-import { $ } from "@handcraft/lib/dollar";
+import $ from "@handcraft/lib/dollar";
 
 const model = watch({ value: "" });
 

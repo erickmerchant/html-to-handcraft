@@ -2,7 +2,7 @@ import css from "@flint/framework/handlers/css";
 import js from "@flint/framework/handlers/js";
 import json from "@flint/framework/handlers/json";
 import flint from "@flint/framework";
-import { view } from "@handcraft/lib/ssr";
+import view from "@handcraft/lib/ssr";
 import page from "./page.ts";
 import api from "./api.ts";
 
