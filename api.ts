@@ -53,6 +53,13 @@ export async function parse(
   return stdout;
 }
 
+function funcCall(proxy: string, name: string) {
+  return proxy +
+    (/^[a-zA-Z]+$/.test(name)
+      ? `.${name}`
+      : `[${JSON.stringify(escape(name))}]`);
+}
+
 function nodeify(
   children: Array<parse5.DefaultTreeAdapterMap["childNode"]>,
 ): Array<string> {
@@ -79,10 +86,20 @@ function nodeify(
         }
       }
 
-      subresult += type + "." + element.nodeName + "(";
-      subresult += element.attrs.map((
-        attr,
-      ) => "attr." + attr.name + "(" + JSON.stringify(escape(attr.value)) + ")")
+      subresult += funcCall(type, element.nodeName) + "(";
+      subresult += element.attrs.map((attr) => {
+        let result;
+
+        if (attr.name.startsWith("aria-")) {
+          result = funcCall("aria", attr.name.substring(5));
+        } else if (attr.name.startsWith("data-")) {
+          result = funcCall("data", attr.name.substring(5));
+        } else {
+          result = funcCall("attr", attr.name);
+        }
+
+        return result + "(" + JSON.stringify(escape(attr.value)) + ")";
+      })
         .concat(children)
         .join(",");
       subresult += ")";
