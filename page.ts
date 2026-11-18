@@ -9,9 +9,7 @@ export default function () {
       html.meta(attr.charset("utf-8")),
       html.meta(
         attr.name("viewport"),
-        attr.content(
-          "width=device-width",
-        ),
+        attr.content("width=device-width"),
       ),
       html.link(attr.rel("stylesheet"), attr.href("/styles.css")),
       html.script(attr.type("module"), attr.src("/script.js")),
