@@ -13,12 +13,6 @@ export default async function (
 ): Promise<string> {
   const html = new TextDecoder().decode(await req.arrayBuffer());
 
-  return parse(html);
-}
-
-export async function parse(
-  html: string,
-): Promise<string> {
   const parsed = parse5.parseFragment(html.trim());
   const children = nodeify(parsed.childNodes);
 
