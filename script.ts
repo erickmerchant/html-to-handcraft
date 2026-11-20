@@ -10,8 +10,7 @@ $("#input")(
     try {
       const res = await fetch("/api.json", {
         method: "post",
-        // @ts-ignore 18047
-        body: ev.target.value,
+        body: (ev.target as HTMLInputElement | null)?.value,
       });
       model.value = await res.json();
     } catch (e) {
